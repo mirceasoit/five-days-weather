@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="workshop.mirceasoit.fivedaysweather.model.Displayable" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/weather_icon"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:image="@{data.weatherInfo.weather[0].iconUrl}"
+            app:placeholder="@{@drawable/ic_not_available}"/>
+
+        <TextView
+            android:id="@+id/main"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@{data.weatherInfo.weather[0].main}"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toTopOf="@id/icon"
+            tools:text="Clear" />
+
+        <TextView
+            android:id="@+id/description"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.weatherInfo.weather[0].description}"
+            app:layout_constraintStart_toStartOf="@id/main"
+            app:layout_constraintTop_toBottomOf="@id/main"
+            tools:text="Clear sky" />
+
+        <TextView
+            android:id="@+id/dt_txt"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.weatherInfo.dtTxt}"
+            app:layout_constraintStart_toStartOf="@id/main"
+            app:layout_constraintTop_toBottomOf="@id/description"
+            tools:text="2021-09-11 12:00:00" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
