@@ -53,6 +53,6 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     private fun loadData() {
-        _viewModel.getData()
+        _viewModel.loadData()
     }
 }

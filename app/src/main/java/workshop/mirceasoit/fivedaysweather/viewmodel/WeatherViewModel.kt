@@ -13,7 +13,7 @@ class WeatherViewModel (private val meteorsRepository: WeatherRepository) : View
     private var _data = MutableLiveData<State>()
     var data: LiveData<State> = _data
 
-    fun getData() {
+    fun loadData() {
         _data.value = State.Loading
         viewModelScope.launch {
             _data.value = meteorsRepository.getData()
